@@ -3,8 +3,8 @@ import Express from 'express';
 import React from 'react';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import counterApp from './reducers';
-import App from './containers/App';
+import { TodoApp } from './components/TodoApp';
+import { todoApp } from './reducers'
 
 import { renderToString } from 'react-dom/server'
 
@@ -20,12 +20,12 @@ app.use(handleRender);
 // We are going to fill these out in the sections to follow
 function handleRender(req, res) {
   // Create a new Redux store instance
-  const store = createStore(counterApp);
+  const store = createStore(todoApp);
 
   // Render the component to a string
   const html = renderToString(
     <Provider store={store}>
-      <App />
+      <TodoApp />
     </Provider>
   );
 

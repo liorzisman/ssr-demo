@@ -1,9 +1,9 @@
 import React from 'react'
-import { render } from 'react-dom'
+import ReactDOM from 'react-dom'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
-import App from './containers/App'
-import counterApp from './reducers'
+import { TodoApp } from './components/TodoApp';
+import { todoApp } from './reducers'
 
 // Grab the state from a global variable injected into the server-generated HTML
 const preloadedState = window.__PRELOADED_STATE__;
@@ -12,11 +12,11 @@ const preloadedState = window.__PRELOADED_STATE__;
 delete window.__PRELOADED_STATE__;
 
 // Create Redux store with initial state
-const store = createStore(counterApp, preloadedState)
+// const store = createStore(counterApp, preloadedState)
 
-render(
-  <Provider store={store}>
-    <App />
+ReactDOM.render(
+  <Provider store={createStore(todoApp)}>
+    <TodoApp />
   </Provider>,
   document.getElementById('root')
 );

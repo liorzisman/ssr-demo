@@ -15,10 +15,7 @@ module.exports = {
         test: /\.js$/,
         loader: 'babel-loader',
         exclude: /node_modules/,
-        include: __dirname,
-        query: {
-          presets: []
-        }
+        include: __dirname
       }
     ]
   }

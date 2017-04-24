@@ -1,10 +1,9 @@
-export default (state = 0, action) => {
-  switch (action.type) {
-    case 'INCREMENT':
-      return state + 1
-    case 'DECREMENT':
-      return state - 1
-    default:
-      return state
-  }
-}
+import React from 'react';
+import { combineReducers } from 'redux';
+import { todos } from './todos';
+import { visibilityFilter } from './filters';
+
+export const todoApp = combineReducers({
+  todos,
+  visibilityFilter
+});
