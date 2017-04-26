@@ -1,0 +1,42 @@
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  width: 720px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-top {
+  display: flex;
+  justify-content: center;
+}
+
+.header-title {
+  font-size: 3.6em;
+}
+
+.header-logo {
+  height: 100px;
+  width: 100px;
+  margin: auto 1em auto 0;
+}
+
+.header-filters {
+  font-size: 1.5em;
+  display: flex;
+  justify-content: center;
+}
+
+.header-filters * {
+  margin: 0 0.5em;
+}
+
+.post-img {
+  margin-left: 25%;
+  width: 400px;
+  height: auto;
+  border: 1px solid black;
+}

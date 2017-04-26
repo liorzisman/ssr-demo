@@ -53,19 +53,25 @@ const FilterLink = connect(
 )(Link);
 
 export const Header = () => (
-  <p>
-    Show:
-    {' '}
-    <FilterLink filter='SHOW_ALL'>
-      All
-    </FilterLink>
-    {', '}
-    <FilterLink filter='SHOW_ACTIVE'>
-      Active
-    </FilterLink>
-    {', '}
-    <FilterLink filter='SHOW_LIKED'>
-      Liked
-    </FilterLink>
-  </p>
+  <div className="header">
+    <div className="header-top">
+      <img className="header-logo" src="/static/outstagram.png"/>
+      <h1 className="header-title">Outstragram</h1>
+    </div>
+    <p className="header-filters">
+      Filter:
+
+      <FilterLink filter='SHOW_ALL'>
+        All
+      </FilterLink>
+
+      <FilterLink filter='SHOW_ACTIVE'>
+        Active
+      </FilterLink>
+      
+      <FilterLink filter='SHOW_LIKED'>
+        Liked
+      </FilterLink>
+    </p>
+  </div>
 );

@@ -7,10 +7,11 @@ const Post = ({
   onLike
 }) => (
   <div>
-    <h2>{post.title}</h2>
-    <img src={post.imageUrl}/>
-    <p>{post.description}</p>
-    <input type="checkbox" onClick={onLike} label="Like" defaultChecked={post.liked}/>
+    <h1>{post.title}</h1>
+    <img className="post-img" src={post.imageUrl}/>
+    <h3>{post.description}</h3>
+    <input type="checkbox" onClick={onLike} label="Like" defaultChecked={post.liked}/><span> Like</span>
+    <hr/>
   </div>
 );
 

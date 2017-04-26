@@ -11,3 +11,12 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 );
+
+function getTimeToFirstPaint() {
+  const timeToFirstPaint = (window.chrome.loadTimes().firstPaintTime - window.chrome.loadTimes().startLoadTime) * 1000;
+  console.log('Time to first paint: ', timeToFirstPaint);
+}
+
+setTimeout(() => {
+  getTimeToFirstPaint();
+}, 2000);
