@@ -1,9 +1,9 @@
 import React from 'react';
 import { combineReducers } from 'redux';
-import { todos } from './todos';
+import { posts } from './posts';
 import { visibilityFilter } from './filters';
 
-export const todoApp = combineReducers({
-  todos,
+export const feedApp = combineReducers({
+  posts,
   visibilityFilter
 });

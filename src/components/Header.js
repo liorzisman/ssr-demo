@@ -33,6 +33,7 @@ const mapStateToLinkProps = (
     state.visibilityFilter
   };
 };
+
 const mapDispatchToLinkProps = (
   dispatch,
   ownProps
@@ -44,13 +45,14 @@ const mapDispatchToLinkProps = (
       );
     }
   };
-}
+};
+
 const FilterLink = connect(
   mapStateToLinkProps,
   mapDispatchToLinkProps
 )(Link);
 
-export const Footer = () => (
+export const Header = () => (
   <p>
     Show:
     {' '}
@@ -62,8 +64,8 @@ export const Footer = () => (
       Active
     </FilterLink>
     {', '}
-    <FilterLink filter='SHOW_COMPLETED'>
-      Completed
+    <FilterLink filter='SHOW_LIKED'>
+      Liked
     </FilterLink>
   </p>
 );
