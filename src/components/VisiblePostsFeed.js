@@ -10,7 +10,7 @@ const Post = ({
     <h2>{post.title}</h2>
     <img src={post.imageUrl}/>
     <p>{post.description}</p>
-    <input type="checkbox" onClick={onLike} label="Like"/>
+    <input type="checkbox" onClick={onLike} label="Like" defaultChecked={post.liked}/>
   </div>
 );
 

@@ -15,13 +15,13 @@ const post = (state, action) => {
 
 const reactUrl = 'http://devstickers.com/assets/img/pro/cew3.png';
 
-const initialState = [
-  { id: 0, imageUrl: reactUrl, description: 'Pic One', title: 'Pick one'},
-  { id: 1, imageUrl: reactUrl, description: 'Pic Two', title: 'Pick Two'},
-  { id: 2, imageUrl: reactUrl, description: 'Pic Three', title: 'Pick Three'}
-];
+function getInitialState(num) {
+  const result = [];
+  for (let i = 0; i < num; i++) result.push({ id: i, imageUrl: reactUrl, description: i, title: i});
+  return result;
+}
 
-export const posts = (state = initialState, action) => {
+export const posts = (state = getInitialState(100), action) => {
   switch (action.type) {
     case 'TOGGLE_LIKE':
       return state.map(t =>
