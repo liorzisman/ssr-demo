@@ -1,44 +1,45 @@
 import Express from 'express';
-import React from 'react'
-import { createStore } from 'redux'
-import { Provider } from 'react-redux'
+import React from 'react';
+import path from 'path';
+
 import { FeedApp } from './components/FeedApp';
-import { feedApp } from './reducers'
 
 import { renderToString } from 'react-dom/server';
 
 const app = Express();
 const port = 3000;
 
-function renderFullPage(html) {
+function renderPage(html) {
   return `
   <!DOCTYPE html>
-  <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Client</title>
-    <link rel="stylesheet" href="/static/style.css" />
-  </head>
-  <body>
-    <div id="root">${html}</div>
-    <script src="/static/bundle.js"></script>
-  </body>
-  </html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <title>Server Side</title>
+      <link rel="stylesheet" href="/static/style.css"/>
+    </head>
+    <body>
+      <div id="root">${html}</div>
+      <script src="/static/bundle.js"></script>
+    </body>
+    </html>
   `;
 }
 
 function handleRender(req, res) {
-
   const html = renderToString(
-    <Provider store={createStore(feedApp)}>
-      <FeedApp />
-    </Provider>,
+    <FeedApp />
   );
 
-  res.send(renderFullPage(html));
+  res.send(renderPage(html));
 }
 
+function handleClient(req, res) {
+  res.sendFile(path.join(__dirname + '/../static/client.html'));
+}
+
+app.use('/ssr', handleRender);
+app.use('/client', handleClient);
 app.use('/static', Express.static('static'));
-app.use(handleRender);
 
 app.listen(port);
